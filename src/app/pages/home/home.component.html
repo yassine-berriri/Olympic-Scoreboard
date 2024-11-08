@@ -1,17 +1,53 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
 
-<div style="display: flex; justify-content: center; padding: 20px;">
-    <ngx-charts-pie-chart
-      [view]="[0,0]"
-      [scheme]="'cool'"
-      [results]="chartData"
-      [legend]="true"
-      [explodeSlices]="false"
-      [labels]="true"
-      [doughnut]="false"
-      (select)="onSelect($event)">
-    </ngx-charts-pie-chart>
+
+<div class="container-fluid d-flex align-items-center justify-content-center min-vh-100" style="flex-direction: column;">
+  <div class="text-center mb-4">
+  <!-- Title -->
+  <h6 class="bg-primary text-white py-2 rounded" style="display: inline-block; background-color: teal !important; padding: 2%; ">Medals per Country</h6>
+</div>
+
+
+
+<!-- Information Cards -->
+<div class="container mb-2"> <!-- Reduced from mb-4 to mb-2 -->
+  <div class="row justify-content-center gap-">
+    <!-- Card for Number of JOs -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <div class="card text-center h-100">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h6 class="card-title">Number of JOs</h6>
+          <h5 class="card-text font-weight-bold">{{ numberOfJo }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for Number of Countries -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <div class="card text-center h-100">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h6 class="card-title">Number of countries</h6>
+          <h5 class="card-text font-weight-bold">{{ (olympics$ | async)?.length }}</h5>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+
+<!-- Chart -->
+<div class="d-flex justify-content-center px-1">
+    <ngx-charts-pie-chart
+    [view]="chartView"
+    [scheme]="'cool'"
+    [results]="chartData"
+    [legend]="false"
+    [explodeSlices]="false"
+    [labels]="true"
+    [doughnut]="false"
+    [tooltipText]="customTooltipText"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+</div>
+
+</div>
   

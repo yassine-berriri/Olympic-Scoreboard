@@ -1,0 +1,59 @@
+<div class="container-fluid text-center">
+    <!-- Country Title -->
+    <h4 class="bg-primary text-white py-2 rounded" style="display: inline-block; background-color: teal !important; padding: 2%;">{{ olympicCountry?.country }}</h4>
+  
+  <!-- Statistics Cards -->
+<div class="container mb-4">
+  <div class="row justify-content-center gap-4">
+    <!-- Card for Number of Entries -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <div class="card text-center h-100" style="border-color: teal;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h6 class="card-title" style="color: rgb(198, 196, 196);">Number of entries</h6>
+          <h5 class="card-text font-weight-bold">{{ numberOfEntries }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for Total Number of Medals -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <div class="card text-center h-100" style="border-color: teal;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h6 class="card-title" style="color: rgb(198, 196, 196);">Total number medals</h6>
+          <h5 class="card-text font-weight-bold">{{ totalMedals }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for Total Number of Athletes -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <div class="card text-center h-100" style="border-color: teal;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h6 class="card-title" style="color: rgb(198, 196, 196);">Total number of athletes</h6>
+          <h5 class="card-text font-weight-bold">{{ totalAthletes }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Line Chart -->
+    <div class="d-flex justify-content-center px-3">
+      <ngx-charts-line-chart
+        [view]="chartView"
+        [scheme]="'cool'"
+        [results]="chartData"
+        [legend]="false"
+        [xAxis]="true"
+        [yAxis]="true"
+        [xAxisLabel]="'Dates'"
+        [yAxisLabel]="'Medals'"
+        [autoScale]="true"
+      >
+      </ngx-charts-line-chart>
+    </div>
+  
+    <!-- Back Button -->
+    <button class="btn btn-primary mt-4" (click)="goBack()">Back</button>
+  </div>
+  
