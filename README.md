@@ -32,7 +32,3 @@ To get started with the project, follow these steps:
 2. Run `npm install` to install the dependencies.
 3. Run `ng serve` to start the development server.
 4. Navigate to `http://localhost:4200/` to view the application.
-
-## Responsive Design
-
-The application is designed to be fully responsive, ensuring a seamless experience across different devices and screen sizes.
